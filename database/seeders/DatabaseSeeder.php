@@ -21,5 +21,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        // Seed products, tokos, and stoks
+        $this->call([
+            ProductSeeder::class,
+            TokoSeeder::class,
+            StokSeeder::class,
+        ]);
     }
 }
+

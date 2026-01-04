@@ -79,13 +79,18 @@
             padding: 10px;
         }
 
+        td.aksi {
+            white-space: nowrap;
+        }
+
         .btn-edit {
             background: #ffc107;
-            padding: 6px 12px;
+            padding: 4px 8px;
             text-decoration: none;
             color: black;
-            border-radius: 5px;
+            border-radius: 4px;
             font-weight: bold;
+            font-size: 12px;
         }
 
         .btn-edit:hover {
@@ -94,12 +99,13 @@
 
         .btn-delete {
             background: #dc3545;
-            padding: 6px 12px;
+            padding: 4px 8px;
             border: none;
             color: white;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 12px;
         }
 
         .btn-delete:hover {
@@ -137,7 +143,7 @@
             <td>{{ $p->name }}</td>
             <td>Rp {{ number_format($p->price, 0, ',', '.') }}</td>
             <td>{{ $p->description }}</td>
-            <td>
+            <td class="aksi">
                 <a href="{{ route('products.edit', $p->id) }}" class="btn-edit">Edit</a>
 
                 <form action="{{ route('products.destroy', $p->id) }}"

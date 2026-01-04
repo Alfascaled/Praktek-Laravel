@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TokoController;
+use App\Http\Controllers\StokController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -23,6 +25,12 @@ Route::get('/dashboard', function () {
 // });
 
 Route::resource('products', ProductController::class);
+Route::resource('tokos', TokoController::class);
+Route::resource('stoks', StokController::class);
+
+// Routes untuk tambah/kurang stok
+Route::post('/stoks/{stok}/tambah', [StokController::class, 'tambahStok'])->name('stoks.tambah');
+Route::post('/stoks/{stok}/kurang', [StokController::class, 'kurangStok'])->name('stoks.kurang');
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
